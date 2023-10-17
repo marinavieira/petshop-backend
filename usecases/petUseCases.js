@@ -4,7 +4,7 @@ const Pet = require('../entities/pet');
 const getPetsDB = async () => {
     try {
         const { rows } = await pool.query(`SELECT * FROM pets ORDER BY nome`);
-        return rows.map((pet) => new Pet(pet.codigo, pet.nome));
+        return rows.map((pet) => new Pet(pet.codigo, pet.nome,pet.idade, pet.descricao, pet.ativo, pet.data_consulta));
     } catch (err) {
         throw "Erro: " + err;
     }
